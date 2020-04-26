@@ -19,7 +19,7 @@ const getCategory = async (req, res) => {
   }
 };
 
-const postCategory = (req, res) => {
+const postCategory = async (req, res) => {
   try {
     const newCategory = await categoryModel.create(req.body);
     res.json(newCategory);

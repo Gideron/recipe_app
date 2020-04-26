@@ -19,7 +19,7 @@ const getComment = async (req, res) => {
   }
 };
 
-const postComment = (req, res) => {
+const postComment = async (req, res) => {
   try {
     const newComment = await commentModel.create(req.body);
     res.json(newComment);

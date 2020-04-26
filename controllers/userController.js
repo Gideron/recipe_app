@@ -19,7 +19,7 @@ const getUser = async (req, res) => {
   }
 };
 
-const postUser = (req, res) => {
+const postUser = async (req, res) => {
   try {
     const newUser = await userModel.create(req.body);
     res.json(newUser);

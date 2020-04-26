@@ -19,7 +19,7 @@ const getRecipe = async (req, res) => {
   }
 };
 
-const postRecipe = (req, res) => {
+const postRecipe = async (req, res) => {
   try {
     const newRecipe = await recipeModel.create(req.body);
     res.json(newRecipe);
