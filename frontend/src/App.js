@@ -1,24 +1,28 @@
 import React from 'react';
 import logo from './logo.svg';
+
+//material icons
+import MenuIcon from '@material-ui/icons/Menu';
+import PersonIcon from '@material-ui/icons/Person';
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
+
 import './App.css';
+
+class NavigationBar extends React.Component {
+  render() {
+    return (
+      <nav>
+        <a id="menu-button" href="index.html"><MenuIcon /></a>
+        <a id="profile-button" href="profile.html"><PersonIcon /></a>
+      </nav>
+    );
+  }
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavigationBar />
     </div>
   );
 }
