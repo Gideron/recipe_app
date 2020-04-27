@@ -48,3 +48,43 @@ nav #profile-button {
 nav a:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
+#content {
+  margin-top: 50px;
+}
+
+#content h1 {
+  text-align: center;
+}
+
+.recipe-element {
+  list-style: none;
+  background-color: rgba(0, 0, 0, 0.144);
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  padding: 5px;
+  border-top: gray solid 1px;
+  text-align: left;
+}
+.recipe-element .recipe-header .MuiSvgIcon-root {
+  font-size: 50px;
+}
+.recipe-header *{
+  display: inline-block;
+}
+.bookmark-button {
+  float: right;
+}
+
+.rate .MuiSvgIcon-root{
+  color: gray;
+}
+.rate span .MuiSvgIcon-root {
+  color: orange;
+}
+.recipe-img {
+  margin: auto;
+  width: auto;
+  height: 200px;
+}

@@ -1,0 +1,25 @@
+[
+    {
+        "Title":  "Title String",
+        "Description": " DescriptionString",
+        "Steps": "Steps String",
+        "Difficulty": "Easy",
+        "CookingTime": 1,
+        "Picture": "",
+        "Rates": [
+            {
+            "Rate": 3,
+            "User": {}
+            },{
+            "Rate": 4,
+            "User": {}
+            }
+        ],
+        "Comments": [
+            {
+            "Title":  "Comment Title String",
+            "Comment": "Comment String",
+            "Author": {}
+            }]
+    }
+]
