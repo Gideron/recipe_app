@@ -22,7 +22,7 @@ class NavigationBar extends React.Component {
   render() {
     return (
       <nav>
-        <Link id="menu-button" to="/"><MenuIcon /></Link>
+        <Link id="menu-button" to="/recipes"><MenuIcon /></Link>
         <Link id="profile-button" to="profile"><PersonIcon /></Link>
       </nav>
     );
@@ -38,6 +38,7 @@ function App() {
           <Route exact path="/">
             <RecipeListApp />
           </Route>
+          <Route path="/recipes/:category?" component={RecipeListApp} />
           <Route exact path="/profile">
             <div id="content">
               <h1>PROFILE PAGE</h1>

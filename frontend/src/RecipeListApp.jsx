@@ -8,7 +8,17 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 //mockup data
 import RecipeData from './mockup_data/RecipeList.json'
 
-const RecipeListApp = () => {
+const RecipeListApp = ({match}) => {
+    if(match && match.params.category){
+        console.log("category: " + JSON.stringify(match.params.category));
+        console.log("MATCH: " + JSON.stringify(match));
+        return (
+            <div id="content">
+                <h1>Category: {match.params.category}</h1>
+                <RecipeList />
+            </div>
+        );
+    }
     return (
     <div id="content">
         <h1>Recipes/Bookmarks</h1>
