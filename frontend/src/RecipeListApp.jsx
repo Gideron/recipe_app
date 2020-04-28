@@ -1,10 +1,10 @@
 import React from 'react';
 //material icons
 import BookmarkIcon from '@material-ui/icons/Bookmark';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+//import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import StarHalfIcon from '@material-ui/icons/StarHalf';
+//import StarHalfIcon from '@material-ui/icons/StarHalf';
 //mockup data
 import RecipeData from './mockup_data/RecipeList.json'
 
