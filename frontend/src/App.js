@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 //import logo from './logo.svg';
 
 //material icons
@@ -16,8 +22,8 @@ class NavigationBar extends React.Component {
   render() {
     return (
       <nav>
-        <a id="menu-button" href="index.html"><MenuIcon /></a>
-        <a id="profile-button" href="profile.html"><PersonIcon /></a>
+        <Link id="menu-button" to="/"><MenuIcon /></Link>
+        <Link id="profile-button" to="profile"><PersonIcon /></Link>
       </nav>
     );
   }
@@ -26,8 +32,19 @@ class NavigationBar extends React.Component {
 function App() {
   return (
     <div className="App">
-      <NavigationBar />
-      <RecipeListApp />
+      <Router>
+        <NavigationBar />
+        <Switch>
+          <Route exact path="/">
+            <RecipeListApp />
+          </Route>
+          <Route exact path="/profile">
+            <div id="content">
+              <h1>PROFILE PAGE</h1>
+            </div>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

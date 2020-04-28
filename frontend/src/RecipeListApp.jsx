@@ -19,15 +19,15 @@ const RecipeListApp = () => {
 
 const RecipeList = () => {
     return (
-    <ul class="recipe-list">
+    <ul className="recipe-list">
         {RecipeData.map(recipe => (
-        <li class="recipe-element" key={recipe.id}>
-            <div class="recipe-header">
+        <li className="recipe-element" key={recipe.id}>
+            <div className="recipe-header">
                 <h2>{recipe.Title}</h2>
-                <a class="bookmark-button"><BookmarkIcon /></a>
+                <a className="bookmark-button"><BookmarkIcon /></a>
             </div>
             <RateElement rates={recipe.Rates}/>
-            <img class="recipe-img" src={recipe.Picture} alt="picture of food" />
+            <img className="recipe-img" src={recipe.Picture} alt="picture of food" />
         </li>
         ))}
     </ul>
@@ -83,7 +83,7 @@ const RateElement = (props) => {
     }
     
     return (
-        <div class="rate">
+        <div className="rate">
             {showRate()}
         </div>
     );
