@@ -1,6 +1,6 @@
 [
     {
-        "Title":  "Title String",
+        "Title":  "Recipe Title String - 1",
         "Description": " DescriptionString",
         "Steps": "Steps String",
         "Difficulty": "Easy",
@@ -13,6 +13,31 @@
             },{
             "Rate": 4,
             "User": {}
+            }
+        ],
+        "Comments": [
+            {
+            "Title":  "Comment Title String",
+            "Comment": "Comment String",
+            "Author": {}
+            }]
+    },{
+        "Title":  "Recipe Title String - 2",
+        "Description": " DescriptionString",
+        "Steps": "Steps String",
+        "Difficulty": "Easy",
+        "CookingTime": 1,
+        "Picture": "",
+        "Rates": [
+            {
+            "Rate": 3,
+            "User": {}
+            },{
+            "Rate": 4,
+            "User": {}
+            },{
+            "Rate": 2,
+            "User": "ThisUser"
             }
         ],
         "Comments": [
