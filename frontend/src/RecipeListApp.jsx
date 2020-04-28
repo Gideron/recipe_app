@@ -66,9 +66,9 @@ const RateElement = (props) => {
             return (
             <a>
                 <span>
-                {createStarIcons(props.rates[i].User.Rate)}
+                {createStarIcons(props.rates[i].Rate)}
                 </span>
-                {createStarBorderIcons(5 - props.rates[i].User.Rate)}
+                {createStarBorderIcons(5 - props.rates[i].Rate)}
             </a>
             );
         }
