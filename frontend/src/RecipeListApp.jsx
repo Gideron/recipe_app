@@ -4,7 +4,6 @@ import BookmarkIcon from '@material-ui/icons/Bookmark';
 //import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-//import StarHalfIcon from '@material-ui/icons/StarHalf';
 //mockup data
 import RecipeData from './mockup_data/RecipeList.json'
 
@@ -43,12 +42,6 @@ const RecipeList = () => {
     </ul>
     );
 }
-/*const RecipeListApp = (
-    <div id="content">
-        <h1>Recipes/Bookmarks</h1>
-        <RecipeList />
-    </div>
-);*/
 
 const RateElement = (props) => {
     function createStarIcons(count) {

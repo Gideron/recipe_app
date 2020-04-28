@@ -5,7 +5,6 @@ import {
   Route,
   Link
 } from "react-router-dom";
-//import logo from './logo.svg';
 
 //material icons
 import MenuIcon from '@material-ui/icons/Menu';
@@ -14,9 +13,6 @@ import PersonIcon from '@material-ui/icons/Person';
 
 import './App.css';
 import RecipeListApp from './RecipeListApp.jsx';
-
-//mockup data
-//import RecipeData from './mockup_data/RecipeList.json'
 
 class NavigationBar extends React.Component {
   render() {
@@ -35,9 +31,7 @@ function App() {
       <Router>
         <NavigationBar />
         <Switch>
-          <Route exact path="/">
-            <RecipeListApp />
-          </Route>
+          <Route exact path="/" component={RecipeListApp} />
           <Route path="/recipes/:category?" component={RecipeListApp} />
           <Route exact path="/profile">
             <div id="content">
