@@ -49,6 +49,33 @@ nav a:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+.menu-window {
+  display: block;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: left;
+  background-color: aqua;
+  transition: all 0.5s ease;
+}
+.menu-window a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  width: 100vw;
+}
+.menu-closed {
+  background-color: red;
+  right: 100%;
+  display: hidden;
+}
+
 #content {
   margin-top: 50px;
 }
