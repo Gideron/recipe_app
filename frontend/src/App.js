@@ -8,7 +8,7 @@ import {
 
 import './App.css';
 import NavigationElement from './NavigationElement.jsx';
-import RecipeListApp from './RecipeListApp.jsx';
+import RecipeListView from './RecipeListView.jsx';
 
 function App() {
   return (
@@ -16,8 +16,8 @@ function App() {
       <Router>
         <NavigationElement />
         <Switch>
-          <Route exact path="/" component={RecipeListApp} />
-          <Route path="/recipes/:category?" component={RecipeListApp} />
+          <Route exact path="/" component={RecipeListView} />
+          <Route path="/recipes/:category?" component={RecipeListView} />
           <Route exact path="/profile">
             <div id="content">
               <h1>PROFILE PAGE</h1>

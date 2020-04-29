@@ -7,7 +7,7 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 //mockup data
 import RecipeData from './mockup_data/RecipeList.json'
 
-const RecipeListApp = ({match}) => {
+const RecipeListView = ({match}) => {
     if(match && match.params.category){
         console.log("category: " + JSON.stringify(match.params.category));
         console.log("MATCH: " + JSON.stringify(match));
@@ -92,4 +92,4 @@ const RateElement = (props) => {
     );
 }
 
-export default RecipeListApp;
+export default RecipeListView;
