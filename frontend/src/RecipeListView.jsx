@@ -13,14 +13,14 @@ const RecipeListView = ({match}) => {
         console.log("category: " + JSON.stringify(match.params.category));
         console.log("MATCH: " + JSON.stringify(match));
         return (
-            <div id="content">
+            <div class="content">
                 <h1>Category: {match.params.category}</h1>
                 <RecipeList />
             </div>
         );
     }
     return (
-    <div id="content">
+    <div class="content">
         <h1>Recipes/Bookmarks</h1>
         <RecipeList />
     </div>
@@ -38,7 +38,7 @@ const RecipeList = () => {
                     <span className="bookmark-button"><BookmarkIcon /></span>
                 </div>
                 <RateElement rates={recipe.Rates}/>
-                <img className="recipe-img" src={recipe.Picture} alt="picture of food" />
+                <img className="recipe-img" src={recipe.Picture} alt="food" />
             </li>
         </Link>
         ))}

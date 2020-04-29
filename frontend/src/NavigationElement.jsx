@@ -11,7 +11,6 @@ const NavigationBar = () => {
     var menuOpen = false;
     function toggleMenu() {
         const menu = document.getElementById('menu-window');
-        const menuButton = document.getElementById('menu-button');
         if(menu.classList.contains("menu-closed")){
             menu.classList.remove("menu-closed");
             menuOpen = true;

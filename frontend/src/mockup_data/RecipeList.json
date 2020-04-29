@@ -2,7 +2,7 @@
     {
         "id": "0",
         "Title":  "Recipe Title String - 1",
-        "Description": " DescriptionString",
+        "Description": " Description String",
         "Steps": "Steps String",
         "Difficulty": "Easy",
         "CookingTime": 1,
@@ -13,19 +13,19 @@
             "User": {}
             },{
             "Rate": 4,
-            "User": {}
+            "User": "Username"
             }
         ],
         "Comments": [
             {
             "Title":  "Comment Title String",
             "Comment": "Comment String",
-            "Author": {}
+            "Author": "Username"
             }]
     },{
         "id": "1",
         "Title":  "Recipe Title String - 2",
-        "Description": " DescriptionString",
+        "Description": " Description String",
         "Steps": "Steps String",
         "Difficulty": "Easy",
         "CookingTime": 1,
@@ -46,7 +46,7 @@
             {
             "Title":  "Comment Title String",
             "Comment": "Comment String",
-            "Author": {}
+            "Author": "Username"
             }]
     }
 ]
