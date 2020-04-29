@@ -6,40 +6,30 @@ import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 //mockup data
 import RecipeData from './mockup_data/RecipeList.json'
+import { red } from '@material-ui/core/colors';
 
-const RecipeListView = ({match}) => {
-    if(match && match.params.category){
-        console.log("category: " + JSON.stringify(match.params.category));
+const RecipeView = ({match}) => {
+    if(match && match.params.recipeId){
+        console.log("recipeId: " + JSON.stringify(match.params.recipeId));
         console.log("MATCH: " + JSON.stringify(match));
-        return (
-            <div id="content">
-                <h1>Category: {match.params.category}</h1>
-                <RecipeList />
-            </div>
-        );
+        if(RecipeData.find(recipe => recipe.id === match.params.recipeId)) {
+            return (
+                <RecipeContent recipe={RecipeData.find(recipe => recipe.id === match.params.recipeId)} />
+            );
+        }
     }
     return (
     <div id="content">
-        <h1>Recipes/Bookmarks</h1>
-        <RecipeList />
+        <h1 style={{color: "red"}}>Recipe not found</h1>
     </div>
     );
 }
 
-const RecipeList = () => {
+const RecipeContent = (props) => {
     return (
-    <ul className="recipe-list">
-        {RecipeData.map(recipe => (
-        <li className="recipe-list-element" key={recipe.id}>
-            <div className="recipe-header">
-                <h2>{recipe.Title}</h2>
-                <a className="bookmark-button"><BookmarkIcon /></a>
-            </div>
-            <RateElement rates={recipe.Rates}/>
-            <img className="recipe-img" src={recipe.Picture} alt="picture of food" />
-        </li>
-        ))}
-    </ul>
+        <div id="content">
+            <h1>Recipe ID: {props.recipe.id}</h1>
+        </div>
     );
 }
 
@@ -92,4 +82,4 @@ const RateElement = (props) => {
     );
 }
 
-export default RecipeListView;
+export default RecipeView;

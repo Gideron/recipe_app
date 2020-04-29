@@ -88,7 +88,7 @@ nav a:hover {
   text-align: center;
 }
 
-.recipe-element {
+.recipe-list-element {
   list-style: none;
   background-color: rgba(0, 0, 0, 0.144);
   width: 100%;
@@ -98,7 +98,7 @@ nav a:hover {
   border-top: gray solid 1px;
   text-align: left;
 }
-.recipe-element .recipe-header .MuiSvgIcon-root {
+.recipe-list-element .recipe-header .MuiSvgIcon-root {
   font-size: 50px;
 }
 .recipe-header *{

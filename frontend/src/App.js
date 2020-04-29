@@ -9,6 +9,7 @@ import {
 import './App.css';
 import NavigationElement from './NavigationElement.jsx';
 import RecipeListView from './RecipeListView.jsx';
+import RecipeView from './RecipeView.jsx';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={RecipeListView} />
           <Route path="/recipes/:category?" component={RecipeListView} />
+          <Route path="/recipe/:recipeId?" component={RecipeView} />
           <Route exact path="/profile">
             <div id="content">
               <h1>PROFILE PAGE</h1>
