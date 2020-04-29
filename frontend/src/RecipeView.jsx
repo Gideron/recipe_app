@@ -6,7 +6,6 @@ import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 //mockup data
 import RecipeData from './mockup_data/RecipeList.json'
-import { red } from '@material-ui/core/colors';
 
 const RecipeView = ({match}) => {
     if(match && match.params.recipeId){
@@ -38,7 +37,7 @@ const RateElement = (props) => {
         let stars = [];
         console.log("createStarIcons: " + count)
         for(let i = 0; i< count;i++){
-            stars.push(<StarIcon key={i}/>);
+            stars.push(<StarIcon key={"StarIcon"+i}/>);
         }
         return (stars);
     }
@@ -46,7 +45,7 @@ const RateElement = (props) => {
         console.log("createStarBorderIcons: " + count)
         let stars = [];
         for(let i = 0; i< count;i++){
-            stars.push(<StarBorderIcon key={i}/>);
+            stars.push(<StarBorderIcon key={"StarBorderIcon"+i}/>);
         }
         return (stars);
     }
@@ -55,23 +54,23 @@ const RateElement = (props) => {
         console.log(props.rates)
         for(var i = 0; i < props.rates.length; i++) {
         currentRate += props.rates[i].Rate;
-        if(props.rates[i].User == "ThisUser"){
+        if(props.rates[i].User === "ThisUser"){
             return (
-            <a>
-                <span>
-                {createStarIcons(props.rates[i].Rate)}
-                </span>
-                {createStarBorderIcons(5 - props.rates[i].Rate)}
-            </a>
+                <div className="rate">
+                    <span>
+                        {createStarIcons(props.rates[i].Rate)}
+                    </span>
+                    {createStarBorderIcons(5 - props.rates[i].Rate)}
+                </div>
             );
         }
         }
         currentRate /= props.rates.length;
         return (
-        <a>
-            {createStarIcons(Math.round(currentRate))}
-            {createStarBorderIcons(5 - Math.round(currentRate))}
-        </a>
+            <div className="rate">
+                {createStarIcons(Math.round(currentRate))}
+                {createStarBorderIcons(5 - Math.round(currentRate))}
+            </div>
         );
     }
     

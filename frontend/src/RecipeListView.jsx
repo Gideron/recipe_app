@@ -7,9 +7,7 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 //mockup data
 import RecipeData from './mockup_data/RecipeList.json'
 
-import {
-    Link
-} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const RecipeListView = ({match}) => {
     if(match && match.params.category){
@@ -38,7 +36,7 @@ const RecipeList = () => {
             <li className="recipe-list-element" key={"li"+recipe.id} to={"/recipe/" + recipe.id}>
                 <div className="recipe-header">
                     <h2>{recipe.Title}</h2>
-                    <a className="bookmark-button"><BookmarkIcon /></a>
+                    <span className="bookmark-button"><BookmarkIcon /></span>
                 </div>
                 <RateElement rates={recipe.Rates}/>
                 <img className="recipe-img" src={recipe.Picture} alt="picture of food" />
@@ -71,23 +69,23 @@ const RateElement = (props) => {
         console.log(props.rates)
         for(var i = 0; i < props.rates.length; i++) {
         currentRate += props.rates[i].Rate;
-        if(props.rates[i].User == "ThisUser"){
+        if(props.rates[i].User === "ThisUser"){
             return (
-            <a>
-                <span>
-                {createStarIcons(props.rates[i].Rate)}
-                </span>
-                {createStarBorderIcons(5 - props.rates[i].Rate)}
-            </a>
+                <div className="rate">
+                    <span>
+                        {createStarIcons(props.rates[i].Rate)}
+                    </span>
+                    {createStarBorderIcons(5 - props.rates[i].Rate)}
+                </div>
             );
         }
         }
         currentRate /= props.rates.length;
         return (
-        <a>
-            {createStarIcons(Math.round(currentRate))}
-            {createStarBorderIcons(5 - Math.round(currentRate))}
-        </a>
+            <div className="rate">
+                {createStarIcons(Math.round(currentRate))}
+                {createStarBorderIcons(5 - Math.round(currentRate))}
+            </div>
         );
     }
     

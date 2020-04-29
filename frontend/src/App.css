@@ -30,7 +30,7 @@ nav {
   right: 0;
   height: 50px;
 }
-nav a {
+nav a, nav button {
   /*display: inline-block;*/
   float: left;
   text-decoration: none;
@@ -39,6 +39,8 @@ nav a {
   height: 50px;
   width: 50px;
   font-size: 50px;
+  background: none;
+  border: none;
 }
 nav .MuiSvgIcon-root {
   font-size: 50px;
@@ -46,7 +48,7 @@ nav .MuiSvgIcon-root {
 nav #profile-button {
   float: right;
 }
-nav a:hover {
+nav a:hover, nav button:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
