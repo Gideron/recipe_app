@@ -59,21 +59,24 @@ nav a:hover {
   overflow-x: hidden;
   overflow-y: auto;
   text-align: left;
-  background-color: aqua;
+  background-color: rgb(250, 250, 250);
   transition: all 0.5s ease;
+  border-right: solid 1px gray;
 }
 .menu-window a {
-  background-color: #eee;
+  background-color: rgb(250, 250, 250);
   color: black;
   display: block;
   padding: 12px;
   text-decoration: none;
   width: 100vw;
 }
+.menu-window a:hover {
+  background-color: rgb(240, 240, 240);
+}
 .menu-closed {
-  background-color: red;
   right: 100%;
-  display: hidden;
+  visibility: hidden;
 }
 
 #content {

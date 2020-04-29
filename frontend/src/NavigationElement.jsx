@@ -22,9 +22,8 @@ const NavigationBar = () => {
     }
     return ([
         <nav>
-            <Link id="menu-button"
-                onClick={toggleMenu.bind(this)}>
-                    <MenuIcon />
+            <Link id="menu-button"onClick={toggleMenu.bind(this)}>
+                <MenuIcon />
             </Link>
             <Link id="profile-button" to="profile"><PersonIcon /></Link>
         </nav>,
