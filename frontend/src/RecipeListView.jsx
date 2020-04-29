@@ -7,6 +7,10 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 //mockup data
 import RecipeData from './mockup_data/RecipeList.json'
 
+import {
+    Link
+} from "react-router-dom";
+
 const RecipeListView = ({match}) => {
     if(match && match.params.category){
         console.log("category: " + JSON.stringify(match.params.category));
@@ -30,14 +34,16 @@ const RecipeList = () => {
     return (
     <ul className="recipe-list">
         {RecipeData.map(recipe => (
-        <li className="recipe-list-element" key={recipe.id}>
-            <div className="recipe-header">
-                <h2>{recipe.Title}</h2>
-                <a className="bookmark-button"><BookmarkIcon /></a>
-            </div>
-            <RateElement rates={recipe.Rates}/>
-            <img className="recipe-img" src={recipe.Picture} alt="picture of food" />
-        </li>
+        <Link key={"link"+recipe.id} to={"/recipe/" + recipe.id}>
+            <li className="recipe-list-element" key={"li"+recipe.id} to={"/recipe/" + recipe.id}>
+                <div className="recipe-header">
+                    <h2>{recipe.Title}</h2>
+                    <a className="bookmark-button"><BookmarkIcon /></a>
+                </div>
+                <RateElement rates={recipe.Rates}/>
+                <img className="recipe-img" src={recipe.Picture} alt="picture of food" />
+            </li>
+        </Link>
         ))}
     </ul>
     );
@@ -48,7 +54,7 @@ const RateElement = (props) => {
         let stars = [];
         console.log("createStarIcons: " + count)
         for(let i = 0; i< count;i++){
-            stars.push(<StarIcon key={i}/>);
+            stars.push(<StarIcon key={"StarIcon"+i}/>);
         }
         return (stars);
     }
@@ -56,7 +62,7 @@ const RateElement = (props) => {
         console.log("createStarBorderIcons: " + count)
         let stars = [];
         for(let i = 0; i< count;i++){
-            stars.push(<StarBorderIcon key={i}/>);
+            stars.push(<StarBorderIcon key={"StarBorderIcon"+i}/>);
         }
         return (stars);
     }
