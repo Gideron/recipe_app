@@ -4,5 +4,7 @@ const recipeResolvers = require("./recipes");
 const commentResolvers = require("./comments");
 
 module.exports = {
-  Query: {},
+  Mutation: {
+    ...userResolvers.Mutation,
+  },
 };
