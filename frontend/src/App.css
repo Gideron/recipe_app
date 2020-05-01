@@ -92,6 +92,10 @@ nav a:hover, nav button:hover {
 .content h1 {
   text-align: center;
 }
+.content h1 span{
+  color: gray;
+  font-size: 10px;
+}
 
 .recipe-list-element {
   list-style: none;
@@ -119,10 +123,6 @@ nav a:hover, nav button:hover {
 }
 .recipe-view h1{
   text-align: left;
-}
-.recipe-view h1 span{
-  color: gray;
-  font-size: 10px;
 }
 .recipe-view h3{
   padding-top: 10px;
@@ -154,4 +154,8 @@ nav a:hover, nav button:hover {
   border-radius: 5px;
   border: gray 1px solid;
   padding: 5px;
+}
+
+.profile-view a{
+  display: block;
 }

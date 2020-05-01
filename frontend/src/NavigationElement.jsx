@@ -30,7 +30,7 @@ const NavigationBar = () => {
             <button id="menu-button" onClick={toggleMenu.bind(this)}>
                 {menuOpen ? <MenuCloseIcon /> : <MenuIcon />}
             </button>
-            <Link id="profile-button" to={loggedin ?  "profile" : "login"} onClick={closeMenu.bind(this)}>{loggedin ?  <PersonIcon /> : <PersonOutlineIcon />}</Link>
+            <Link id="profile-button" to={loggedin ?  "/profile" : "/login"} onClick={closeMenu.bind(this)}>{loggedin ?  <PersonIcon /> : <PersonOutlineIcon />}</Link>
         </nav>,
         <div id="menu-window" className="menu-window menu-closed" key="menukey">
             <Link to="/" onClick={closeMenu.bind(this)}>Home</Link>

@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1",
+        "name":  "Username",
+        "role":  "creator",
+        "recipes":  {},
+        "bookmarks":  {},
+        "followedUsers":  {}
+    },{
+        "id": "2",
+        "name":  "Username2",
+        "role":  "creator",
+        "recipes":  {},
+        "bookmarks":  {},
+        "followedUsers":  {}
+    }
+]
