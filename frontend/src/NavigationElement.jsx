@@ -5,9 +5,10 @@ import {Link} from "react-router-dom";
 import MenuIcon from '@material-ui/icons/Menu';
 import MenuCloseIcon from '@material-ui/icons/Close';
 import PersonIcon from '@material-ui/icons/Person';
-//import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 
 const NavigationBar = () => {
+    var loggedin = true;
     var menuOpen = false;
     function toggleMenu() {
         const menu = document.getElementById('menu-window');
@@ -29,7 +30,7 @@ const NavigationBar = () => {
             <button id="menu-button" onClick={toggleMenu.bind(this)}>
                 {menuOpen ? <MenuCloseIcon /> : <MenuIcon />}
             </button>
-            <Link id="profile-button" to="profile" onClick={closeMenu.bind(this)}><PersonIcon /></Link>
+            <Link id="profile-button" to={loggedin ?  "profile" : "login"} onClick={closeMenu.bind(this)}>{loggedin ?  <PersonIcon /> : <PersonOutlineIcon />}</Link>
         </nav>,
         <div id="menu-window" className="menu-window menu-closed" key="menukey">
             <Link to="/" onClick={closeMenu.bind(this)}>Home</Link>
