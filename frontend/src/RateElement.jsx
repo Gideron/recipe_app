@@ -6,14 +6,12 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 const RateElement = (props) => {
     function createStarIcons(count) {
         let stars = [];
-        console.log("createStarIcons: " + count)
         for(let i = 0; i< count;i++){
             stars.push(<StarIcon key={"StarIcon"+i}/>);
         }
         return (stars);
     }
     function createStarBorderIcons(count) {
-        console.log("createStarBorderIcons: " + count)
         let stars = [];
         for(let i = 0; i< count;i++){
             stars.push(<StarBorderIcon key={"StarBorderIcon"+i}/>);
@@ -29,7 +27,6 @@ const RateElement = (props) => {
             );
         }
         var currentRate = 0;
-        console.log(props.rates)
         for(var i = 0; i < props.rates.length; i++) {
         currentRate += props.rates[i].Rate;
         if(props.rates[i].User === "ThisUser"){
