@@ -7,7 +7,7 @@ const { ApolloServer } = require("apollo-server");
 const express = require("express");
 const db = require("./database/db");
 const app = express();
-const port = 3000;
+const port = 3030;
 
 const typeDefs = require("./graphql/typeDefs");
 const resolvers = require("./graphql/resolvers");
