@@ -8,7 +8,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 
 const NavigationBar = () => {
-    var loggedin = true;
+    var loggedin = false;
     var menuOpen = false;
     function toggleMenu() {
         const menu = document.getElementById('menu-window');
