@@ -10,17 +10,15 @@ import {Link} from "react-router-dom";
 
 const RecipeListView = ({match}) => {
     if(match && match.params.category){
-        console.log("category: " + JSON.stringify(match.params.category));
-        console.log("MATCH: " + JSON.stringify(match));
         return (
-            <div class="content">
+            <div className="content">
                 <h1>Category: {match.params.category}</h1>
                 <RecipeList />
             </div>
         );
     }
     return (
-    <div class="content">
+    <div className="content">
         <h1>Recipes/Bookmarks</h1>
         <RecipeList />
     </div>

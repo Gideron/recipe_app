@@ -7,14 +7,18 @@ Users can comment, rate and bookmark the recipes.
 ## Backend
 
 1. Setup mongodb database
-2. Create .env file and add DB_URL variable
+2. Create .env file in 'backend' folder
+3. Add DB_URL and SECRET_KEY variables to .env
 
 And then run these commands:
 
 ```sh
+cd backend
 npm install
 npm start
 ```
+
+Backend will be running on localhost:3030
 
 ## Frontend
 

@@ -8,8 +8,6 @@ import RateElement from './RateElement'
 
 const RecipeView = ({match}) => {
     if(match && match.params.recipeId){
-        console.log("recipeId: " + JSON.stringify(match.params.recipeId));
-        console.log("MATCH: " + JSON.stringify(match));
         if(RecipeData.find(recipe => recipe.id === match.params.recipeId)) {
             return (
                 <div className="content">
@@ -26,7 +24,6 @@ const RecipeView = ({match}) => {
 }
 
 const RecipeContent = (props) => {
-    console.log("RECIPE--- " + JSON.stringify(props.recipe));
     return (
         <div className="recipe-view">
             <div className="recipe-view-header">
