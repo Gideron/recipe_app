@@ -24,6 +24,7 @@ module.exports = gql`
     cookingTime: String!
     rates: [Rate]!
     comments: [Comment]!
+    bookmarks: [Bookmark]!
   }
   type Comment {
     id: ID!
@@ -36,6 +37,10 @@ module.exports = gql`
     createdAt: String!
     username: String!
   }
+  type Bookmark {
+    id: ID!
+    username: String!
+  }
 
   type Query {
     getRecipes: [Recipe]
@@ -44,10 +49,17 @@ module.exports = gql`
   type Mutation {
     register(registerInput: RegisterInput): User!
     login(username: String!, password: String!): User!
-    createRecipe(title: String!, description: String!, steps: String!, difficulty: String!, cookingTime: String!): Recipe!
+    createRecipe(
+      title: String!
+      description: String!
+      steps: String!
+      difficulty: String!
+      cookingTime: String!
+    ): Recipe!
     deleteRecipe(recipeId: ID!): String!
     createComment(recipeId: String!, body: String!): Recipe!
     deleteComment(recipeId: ID!, commentId: ID!): Recipe!
     rateRecipe(recipeId: ID!): Recipe!
+    bookmarkRecipe(recipeId: ID!): Recipe!
   }
 `;

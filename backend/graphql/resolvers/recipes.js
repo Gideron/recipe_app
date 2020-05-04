@@ -1,4 +1,4 @@
-const { AuthenticationError } = require("apollo-server");
+const { AuthenticationError, UserInputError } = require("apollo-server");
 
 const Recipe = require("../../models/recipe");
 const auth = require("../../utils/checkAuth");
@@ -27,7 +27,11 @@ module.exports = {
     },
   },
   Mutation: {
-    async createRecipe(_, { title, description, steps, difficulty, cookingTime }, context) {
+    async createRecipe(
+      _,
+      { title, description, steps, difficulty, cookingTime },
+      context
+    ) {
       const user = auth(context);
 
       const newRecipe = new Recipe({
@@ -36,7 +40,7 @@ module.exports = {
         steps,
         user: user.id,
         difficulty,
-        cookingTime
+        cookingTime,
       });
 
       const recipe = await newRecipe.save();
@@ -57,6 +61,28 @@ module.exports = {
       } catch (err) {
         throw new Error(err);
       }
+    },
+    async bookmarkRecipe(_, { recipeId }, context) {
+      const { username } = auth(context);
+
+      const recipe = await Recipe.findById(recipeId);
+      if (recipe) {
+        if (
+          recipe.bookmarks.find((bookmark) => bookmark.username === username)
+        ) {
+          recipe.bookmarks = recipe.bookmarks.filter(
+            (bookmark) => bookmark.username !== username
+          );
+          await recipe.save();
+        } else {
+          recipe.bookmarks.push({
+            username,
+            createdAt: new Date().toISOString(),
+          });
+        }
+        await recipe.save();
+        return recipe;
+      } else throw new UserInputError("Recipe not found");
     },
   },
 };
