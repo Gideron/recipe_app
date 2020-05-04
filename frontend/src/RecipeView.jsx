@@ -61,7 +61,7 @@ const RecipeContent = (props) => {
             <h3>Comments:</h3>
             {props.recipe.comments && props.recipe.comments.length > 0 ? props.recipe.comments.map((comment) => (
                 <div key={"comment"+comment.id} className="recipe-comment">
-                    <h4>{comment.username}: -{comment.createdAt}</h4>
+                    <h4>{comment.username}: <span>-{comment.createdAt}</span></h4>
                     <p>{comment.body}</p>
                 </div>
             )) : <p>No Comments</p>}
