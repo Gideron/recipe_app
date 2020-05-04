@@ -2,8 +2,6 @@ import React from 'react';
 //material icons
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 //import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-//mockup data
-import RecipeData from './mockup_data/RecipeList.json'
 import RateElement from './RateElement'
 
 import { useQuery } from '@apollo/react-hooks';
@@ -19,6 +17,7 @@ const GET_RECIPE = gql`
         steps
         difficulty
         cookingTime
+        comments {id, username, body, createdAt}
     }
   }
 `;
@@ -29,8 +28,6 @@ const RecipeView = ({match}) => {
         variables: { recipeId },
       })
     console.log(GET_RECIPE);
-    //const { loading, error, data } = useQuery<match.params.recipeId>(GET_RECIPE);
-    //useQuery(GET_RECIPE);
   
     if (loading) return <p>Loading...</p>;
     if (error) {
@@ -62,12 +59,12 @@ const RecipeContent = (props) => {
             <h3>Steps:</h3>
             <p>{props.recipe.steps}</p>
             <h3>Comments:</h3>
-            {props.recipe.comments ? props.recipe.comments.map((comment) => (
+            {props.recipe.comments && props.recipe.comments.length > 0 ? props.recipe.comments.map((comment) => (
                 <div key={"comment"+comment.id} className="recipe-comment">
                     <h4>{comment.username}: -{comment.createdAt}</h4>
                     <p>{comment.body}</p>
                 </div>
-            )) : <h4>No Comments</h4>}
+            )) : <p>No Comments</p>}
         </div>
     );
 }

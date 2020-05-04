@@ -160,6 +160,10 @@ nav a:hover, nav button:hover {
   border: gray 1px solid;
   padding: 5px;
 }
+.recipe-comment h4 span {
+  color: gray;
+  font-size: 12px;
+}
 
 .profile-view a{
   display: block;
