@@ -16,16 +16,19 @@ module.exports = gql`
   }
   type Recipe {
     id: ID!
-    title: String!
-    description: String!
-    steps: String!
+    body: String!
+    username: String!
+    createdAt: String!
   }
 
   type Query {
     getRecipes: [Recipe]
+    getRecipe(recipeId: ID!): Recipe
   }
   type Mutation {
     register(registerInput: RegisterInput): User!
     login(username: String!, password: String!): User!
+    createRecipe(body: String!): Recipe!
+    deleteRecipe(recipeId: ID!): String!
   }
 `;
