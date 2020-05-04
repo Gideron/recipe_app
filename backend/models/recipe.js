@@ -5,10 +5,7 @@ const recipeSchema = new Schema(
     title: String,
     description: String,
     steps: String,
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: "users",
-    },
+    username: String,
     difficulty: {
       type: String,
       enum: ["Easy", "Medium", "Hard"],

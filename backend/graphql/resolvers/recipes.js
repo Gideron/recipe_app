@@ -38,7 +38,7 @@ module.exports = {
         title,
         description,
         steps,
-        user: user.id,
+        username: user.username,
         difficulty,
         cookingTime,
       });

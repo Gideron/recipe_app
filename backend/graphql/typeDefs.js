@@ -19,7 +19,7 @@ module.exports = gql`
     title: String!
     description: String!
     steps: String!
-    user: User!
+    username: String!
     difficulty: String!
     cookingTime: String!
     rates: [Rate]!
