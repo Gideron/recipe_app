@@ -2,22 +2,20 @@ const { model, Schema } = require("mongoose");
 
 const recipeSchema = new Schema(
   {
-    //title: String,
-    body: String,
-    //steps: String,
-    username: String,
-    createdAt: String,
+    title: String,
+    description: String,
+    steps: String,
     user: {
       type: Schema.Types.ObjectId,
       ref: "users",
     },
-    /* difficulty: {
+    difficulty: {
       type: String,
       enum: ["Easy", "Medium", "Hard"],
       required: true,
     },
-    cookingTime: Number,
-    categories: [
+    cookingTime: String,
+    /*categories: [
       {
         type: Schema.Types.ObjectId,
         ref: "Category",

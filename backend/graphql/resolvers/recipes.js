@@ -27,14 +27,16 @@ module.exports = {
     },
   },
   Mutation: {
-    async createRecipe(_, { body }, context) {
+    async createRecipe(_, { title, description, steps, difficulty, cookingTime }, context) {
       const user = auth(context);
 
       const newRecipe = new Recipe({
-        body,
+        title,
+        description,
+        steps,
         user: user.id,
-        username: user.username,
-        createdAt: new Date().toISOString(),
+        difficulty,
+        cookingTime
       });
 
       const recipe = await newRecipe.save();

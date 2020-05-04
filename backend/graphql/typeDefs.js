@@ -16,9 +16,12 @@ module.exports = gql`
   }
   type Recipe {
     id: ID!
-    body: String!
-    username: String!
-    createdAt: String!
+    title: String!
+    description: String!
+    steps: String!
+    user: User!
+    difficulty: String!
+    cookingTime: String!
     rates: [Rate]!
     comments: [Comment]!
   }
@@ -41,7 +44,7 @@ module.exports = gql`
   type Mutation {
     register(registerInput: RegisterInput): User!
     login(username: String!, password: String!): User!
-    createRecipe(body: String!): Recipe!
+    createRecipe(title: String!, description: String!, steps: String!, difficulty: String!, cookingTime: String!): Recipe!
     deleteRecipe(recipeId: ID!): String!
     createComment(recipeId: String!, body: String!): Recipe!
     deleteComment(recipeId: ID!, commentId: ID!): Recipe!
