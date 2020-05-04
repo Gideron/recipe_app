@@ -29,7 +29,7 @@ const RateElement = (props) => {
         var currentRate = 0;
         for(var i = 0; i < props.rates.length; i++) {
         currentRate += props.rates[i].rate;
-        if(props.rates[i].user.username === "ThisUser"){
+        if(props.rates[i].username === "ThisUser"){
             return (
                 <div className="rate">
                     <span>

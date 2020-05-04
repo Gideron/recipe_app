@@ -6,20 +6,44 @@ import BookmarkIcon from '@material-ui/icons/Bookmark';
 import RecipeData from './mockup_data/RecipeList.json'
 import RateElement from './RateElement'
 
-const RecipeView = ({match}) => {
-    if(match && match.params.recipeId){
-        if(RecipeData.find(recipe => recipe.id === match.params.recipeId)) {
-            return (
-                <div className="content">
-                    <RecipeContent recipe={RecipeData.find(recipe => recipe.id === match.params.recipeId)} />
-                </div>
-            );
-        }
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from "apollo-boost"
+
+const GET_RECIPE = gql`
+  query GetRecipe($recipeId: ID!) {
+    getRecipe(recipeId: $recipeId) {
+        id
+        username
+        title
+        steps
+        difficulty
+        cookingTime
     }
+  }
+`;
+
+const RecipeView = ({match}) => {
+    const recipeId = match.params.recipeId;
+    const { loading, error, data } = useQuery(GET_RECIPE, {
+        variables: { recipeId },
+      })
+    console.log(GET_RECIPE);
+    //const { loading, error, data } = useQuery<match.params.recipeId>(GET_RECIPE);
+    //useQuery(GET_RECIPE);
+  
+    if (loading) return <p>Loading...</p>;
+    if (error) {
+        return (
+            <div className="content">
+                <h1 style={{color: "red"}}>Recipe not found</h1>
+            </div>
+        ); 
+    }
+
     return (
-    <div className="content">
-        <h1 style={{color: "red"}}>Recipe not found</h1>
-    </div>
+        <div className="content">
+            <RecipeContent recipe={data.getRecipe} />
+        </div>
     );
 }
 
@@ -27,22 +51,22 @@ const RecipeContent = (props) => {
     return (
         <div className="recipe-view">
             <div className="recipe-view-header">
-                <h1>{props.recipe.Title} <span>ID: {props.recipe.id}</span></h1>
+                <h1>{props.recipe.title} <span>ID: {props.recipe.id}</span></h1>
                 <BookmarkIcon />
             </div>
-            <RateElement rates={props.recipe.Rates}/>
-            <img className="recipe-img" src={props.recipe.Picture} alt="food" />
+            <RateElement rates={props.recipe.rates}/>
+            <img className="recipe-img" src={props.recipe.picture} alt="food" />
             <h3>Description:</h3>
-            <p>{props.recipe.Description}</p>
+            <p>{props.recipe.description}</p>
             <h3>Steps:</h3>
-            <p>{props.recipe.Steps}</p>
+            <p>{props.recipe.steps}</p>
             <h3>Comments:</h3>
-            {props.recipe.Comments.map((comment) => (
+            {props.recipe.comments ? props.recipe.comments.map((comment) => (
                 <div key={"comment"+comment.id} className="recipe-comment">
-                    <h4>{comment.Author}:</h4>
-                    <p>{comment.Comment}</p>
+                    <h4>{comment.username}: -{comment.createdAt}</h4>
+                    <p>{comment.body}</p>
                 </div>
-            ))}
+            )) : <h4>No Comments</h4>}
         </div>
     );
 }
