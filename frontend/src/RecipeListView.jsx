@@ -3,10 +3,24 @@ import React from 'react';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 //import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 //mockup data
-import RecipeData from './mockup_data/RecipeList.json'
+//import RecipeData from './mockup_data/RecipeList.json'
 import RateElement from './RateElement'
 
 import {Link} from "react-router-dom";
+
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from "apollo-boost"
+
+const ALL_RECIPES = gql`
+  {
+    getRecipes{
+      body
+      id
+      username
+      createdAt
+    }
+  }
+`;
 
 const RecipeListView = ({match}) => {
     if(match && match.params.category){
@@ -26,9 +40,14 @@ const RecipeListView = ({match}) => {
 }
 
 const RecipeList = () => {
+    const { loading, error, data } = useQuery(ALL_RECIPES);
+  
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error :(</p>;
+    
     return (
     <ul className="recipe-list">
-        {RecipeData.map(recipe => (
+        {data.getRecipes.map(recipe => (
         <Link key={"link"+recipe.id} to={"/recipe/" + recipe.id}>
             <li className="recipe-list-element" key={"li"+recipe.id} to={"/recipe/" + recipe.id}>
                 <div className="recipe-header">

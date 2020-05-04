@@ -11,17 +11,25 @@ import RecipeListView from './RecipeListView.jsx';
 import RecipeView from './RecipeView.jsx';
 import ProfileView from './ProfileView.jsx';
 
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
+const client = new ApolloClient({
+  uri: 'http://localhost:3030/',
+});
+
 function App() {
   return (
     <div className="App">
       <Router>
-        <NavigationElement />
-        <Switch>
-          <Route exact path="/" component={RecipeListView} />
-          <Route path="/recipes/:category?" component={RecipeListView} />
-          <Route path="/recipe/:recipeId?" component={RecipeView} />
-          <Route exact path="/profile/:userId?" component={ProfileView} />
-        </Switch>
+        <ApolloProvider client={client}>
+          <NavigationElement />
+          <Switch>
+            <Route exact path="/" component={RecipeListView} />
+            <Route path="/recipes/:category?" component={RecipeListView} />
+            <Route path="/recipe/:recipeId?" component={RecipeView} />
+            <Route exact path="/profile/:userId?" component={ProfileView} />
+          </Switch>
+        </ApolloProvider>
       </Router>
     </div>
   );
