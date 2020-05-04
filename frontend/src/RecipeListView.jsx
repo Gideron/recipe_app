@@ -14,10 +14,12 @@ import { gql } from "apollo-boost"
 const ALL_RECIPES = gql`
   {
     getRecipes{
-      body
-      id
-      username
-      createdAt
+        id,
+        title,
+        description,
+        steps,
+        difficulty,
+        cookingTime,
     }
   }
 `;
@@ -51,11 +53,12 @@ const RecipeList = () => {
         <Link key={"link"+recipe.id} to={"/recipe/" + recipe.id}>
             <li className="recipe-list-element" key={"li"+recipe.id} to={"/recipe/" + recipe.id}>
                 <div className="recipe-header">
-                    <h2>{recipe.Title}</h2>
+                    <h2>{recipe.title}</h2>
                     <span className="bookmark-button"><BookmarkIcon /></span>
                 </div>
-                <RateElement rates={recipe.Rates}/>
-                <img className="recipe-img" src={recipe.Picture} alt="food" />
+                <RateElement rates={recipe.rates}/>
+                <img className="recipe-img" src={recipe.picture? recipe.picture : "https://via.placeholder.com/300x150"} alt="food" />
+                <p>{recipe.description}</p>
             </li>
         </Link>
         ))}
