@@ -16,9 +16,9 @@ module.exports = gql`
   }
   type Recipe {
     id: ID!
+    title: String!
     description: String!
-    createdAt: String!
-    username: String!
+    steps: String!
   }
 
   type Query {
