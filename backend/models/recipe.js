@@ -22,20 +22,21 @@ const recipeSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: "Category",
       },
-    ],
+    ],*/
     rates: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "Rate",
+        username: String,
+        createdAt: String,
       },
     ],
     //picture: {},
     comments: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "Comment",
+        body: String,
+        username: String,
+        createdAt: String,
       },
-    ],*/
+    ],
   },
   { timestamps: true }
 );

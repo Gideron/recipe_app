@@ -11,5 +11,6 @@ module.exports = {
   Mutation: {
     ...userResolvers.Mutation,
     ...recipeResolvers.Mutation,
+    ...commentResolvers.Mutation,
   },
 };

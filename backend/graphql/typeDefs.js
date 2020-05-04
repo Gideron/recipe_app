@@ -19,6 +19,19 @@ module.exports = gql`
     body: String!
     username: String!
     createdAt: String!
+    rates: [Rate]!
+    comments: [Comment]!
+  }
+  type Comment {
+    id: ID!
+    createdAt: String!
+    username: String!
+    body: String!
+  }
+  type Rate {
+    id: ID!
+    createdAt: String!
+    username: String!
   }
 
   type Query {
@@ -30,5 +43,8 @@ module.exports = gql`
     login(username: String!, password: String!): User!
     createRecipe(body: String!): Recipe!
     deleteRecipe(recipeId: ID!): String!
+    createComment(recipeId: String!, body: String!): Recipe!
+    deleteComment(recipeId: ID!, commentId: ID!): Recipe!
+    rateRecipe(recipeId: ID!): Recipe!
   }
 `;
