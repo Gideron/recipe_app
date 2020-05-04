@@ -28,14 +28,14 @@ const RateElement = (props) => {
         }
         var currentRate = 0;
         for(var i = 0; i < props.rates.length; i++) {
-        currentRate += props.rates[i].Rate;
-        if(props.rates[i].User === "ThisUser"){
+        currentRate += props.rates[i].rate;
+        if(props.rates[i].user.username === "ThisUser"){
             return (
                 <div className="rate">
                     <span>
-                        {createStarIcons(props.rates[i].Rate)}
+                        {createStarIcons(props.rates[i].rate)}
                     </span>
-                    {createStarBorderIcons(5 - props.rates[i].Rate)}
+                    {createStarBorderIcons(5 - props.rates[i].rate)}
                 </div>
             );
         }

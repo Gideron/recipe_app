@@ -102,7 +102,7 @@ nav a:hover, nav button:hover {
   background-color: rgba(0, 0, 0, 0.144);
   width: 100%;
   margin: auto;
-  padding: 5px;
+  padding: 10px;
   border-top: gray solid 1px;
   text-align: left;
   text-decoration: none;
@@ -110,6 +110,11 @@ nav a:hover, nav button:hover {
 }
 .recipe-list-element .recipe-header .MuiSvgIcon-root {
   font-size: 50px;
+}
+.recipe-list-element img {
+  width: 100%;
+  height: auto;
+  margin: auto;
 }
 .recipe-header *{
   display: inline-block;
