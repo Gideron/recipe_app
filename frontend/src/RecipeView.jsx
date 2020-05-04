@@ -14,6 +14,7 @@ const GET_RECIPE = gql`
     getRecipe(recipeId: $recipeId) {
         id
         username
+        description
         title
         steps
         difficulty
