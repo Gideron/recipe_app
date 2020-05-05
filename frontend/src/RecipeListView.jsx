@@ -20,6 +20,7 @@ const ALL_RECIPES = gql`
         steps,
         difficulty,
         cookingTime,
+        rates{id,username,rate},
     }
   }
 `;
@@ -62,7 +63,6 @@ const RecipeList = (props) => {
         recipeListData = data.getRecipes.find(recipe => recipe.category === props.category);
     
     if(!recipeListData) return <p>Recipes not found</p>
-    
     
     return (
     <ul className="recipe-list">
