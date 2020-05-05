@@ -29,7 +29,7 @@ const RecipeListView = ({match}) => {
         return (
             <div className="content">
                 <h1>Category: {match.params.category}</h1>
-                <RecipeList />
+                <RecipeList category={match.params.category}/>
             </div>
         );
     }
@@ -41,15 +41,21 @@ const RecipeListView = ({match}) => {
     );
 }
 
-const RecipeList = () => {
+const RecipeList = (props) => {
     const { loading, error, data } = useQuery(ALL_RECIPES);
   
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
+
+    var recipeListData = data.getRecipes;
+    if(props && props.category)
+        recipeListData = data.getRecipes.find(recipe => recipe.category === props.category);
+    
+    if(!recipeListData) return <p>Recipes not found</p>
     
     return (
     <ul className="recipe-list">
-        {data.getRecipes.map(recipe => (
+        {recipeListData.map(recipe => (
         <Link key={"link"+recipe.id} to={"/recipe/" + recipe.id}>
             <li className="recipe-list-element" key={"li"+recipe.id} to={"/recipe/" + recipe.id}>
                 <div className="recipe-header">
