@@ -7,7 +7,24 @@ import MenuCloseIcon from '@material-ui/icons/Close';
 import PersonIcon from '@material-ui/icons/Person';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from "apollo-boost"
+
+const ALL_CATEGORIES = gql`
+  {
+    getCategories{
+        id
+        title
+    }
+  }
+`;
+
 const NavigationBar = () => {
+    const { loading, error, data } = useQuery(ALL_CATEGORIES);
+  
+    var categories = null;
+    if (data) categories = data.getCategories;
+    
     var loggedin = false;
     var menuOpen = false;
     function toggleMenu() {
@@ -34,9 +51,7 @@ const NavigationBar = () => {
         </nav>,
         <div id="menu-window" className="menu-window menu-closed" key="menukey">
             <Link to="/" onClick={closeMenu.bind(this)}>Home</Link>
-            <Link to="/recipes/Starters" onClick={closeMenu.bind(this)}>Starters</Link>
-            <Link to="/recipes/Main dishes" onClick={closeMenu.bind(this)}>Main dishes</Link>
-            <Link to="/recipes/Desserts" onClick={closeMenu.bind(this)}>Desserts</Link>
+            {categories ? categories.map(cat =>(<Link to={"/recipes/"+cat.title} onClick={closeMenu.bind(this)}>{cat.title}</Link>)) : <p>No categories</p>}
         </div>
     ]);
 }

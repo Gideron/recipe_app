@@ -83,6 +83,13 @@ nav a:hover, nav button:hover {
   max-width: 0;
   visibility: hidden;
 }
+.menu-window p {
+  color: gray;
+  display: block;
+  padding: 12px;
+  width: 100vw;
+  font-size: 12px;
+}
 
 .content {
   max-width: 800px;
