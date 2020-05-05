@@ -167,6 +167,7 @@ nav a:hover, nav button:hover {
   border-radius: 5px;
   border: gray 1px solid;
   padding: 5px;
+  margin: 5px;
 }
 .recipe-comment h4 span {
   color: gray;
