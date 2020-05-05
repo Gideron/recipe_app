@@ -6,11 +6,13 @@ const commentResolvers = require("./comments");
 module.exports = {
   Query: {
     ...recipeResolvers.Query,
+    ...categoryResolvers.Query,
   },
 
   Mutation: {
     ...userResolvers.Mutation,
     ...recipeResolvers.Mutation,
     ...commentResolvers.Mutation,
+    ...categoryResolvers.Mutation,
   },
 };

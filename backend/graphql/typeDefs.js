@@ -14,6 +14,7 @@ module.exports = gql`
     password: String!
     confirmPassword: String!
   }
+
   type Recipe {
     id: ID!
     title: String!
@@ -25,6 +26,10 @@ module.exports = gql`
     rates: [Rate]!
     comments: [Comment]!
     bookmarks: [Bookmark]!
+  }
+  type Category {
+    id: ID!
+    title: String!
   }
   type Comment {
     id: ID!
@@ -46,6 +51,8 @@ module.exports = gql`
   type Query {
     getRecipes: [Recipe]
     getRecipe(recipeId: ID!): Recipe
+    getCategory(categoryId: ID!): Category
+    getCategories: [Category]
   }
   type Mutation {
     register(registerInput: RegisterInput): User!
@@ -62,5 +69,7 @@ module.exports = gql`
     deleteComment(recipeId: ID!, commentId: ID!): Recipe!
     rateRecipe(recipeId: ID!, rate: Int!): Recipe!
     bookmarkRecipe(recipeId: ID!): Recipe!
+    addCategory(title: String!): Category!
+    deleteCategory(categoryId: ID!): String!
   }
 `;
