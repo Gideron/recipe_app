@@ -24,8 +24,10 @@ const NavigationBar = () => {
 
   var categories = null;
   if (data) categories = data.getCategories;
+  
   var loggedin = false;
   var menuOpen = false;
+
   function toggleMenu() {
     const menu = document.getElementById("menu-window");
     if (menu.classList.contains("menu-closed")) {
@@ -60,7 +62,7 @@ const NavigationBar = () => {
       </Link>
       {categories ? (
         categories.map((cat) => (
-          <Link to={"/recipes/" + cat.title} onClick={closeMenu.bind(this)}>
+          <Link key={cat.id} to={"/recipes/" + cat.title} onClick={closeMenu.bind(this)}>
             {cat.title}
           </Link>
         ))

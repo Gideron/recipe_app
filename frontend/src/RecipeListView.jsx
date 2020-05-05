@@ -14,13 +14,13 @@ import { gql } from "apollo-boost"
 const ALL_RECIPES = gql`
   {
     getRecipes{
-        id,
-        title,
-        description,
-        steps,
-        difficulty,
-        cookingTime,
-        rates{id,username,rate},
+        id
+        title
+        description
+        steps
+        difficulty
+        cookingTime
+        rates{id,username,rate}
     }
   }
 `;

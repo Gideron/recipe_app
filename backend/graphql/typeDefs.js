@@ -15,10 +15,6 @@ module.exports = gql`
     confirmPassword: String!
   }
 
-  input CategoryInput {
-    id: ID!
-  }
-
   type Recipe {
     id: ID!
     title: String!
@@ -27,7 +23,7 @@ module.exports = gql`
     username: String!
     difficulty: String!
     cookingTime: String!
-    category: [Category]!
+    category: Category!
     rates: [Rate]!
     comments: [Comment]!
     bookmarks: [Bookmark]!

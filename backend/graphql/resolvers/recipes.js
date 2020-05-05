@@ -41,7 +41,7 @@ module.exports = {
         username: user.username,
         difficulty,
         cookingTime,
-        categoryId,
+        category: categoryId,
       });
 
       const recipe = await newRecipe.save();
