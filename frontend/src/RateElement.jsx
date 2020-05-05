@@ -19,7 +19,7 @@ const RateElement = (props) => {
         return (stars);
     }
     function showRate() {
-        if(!props.rates) {
+        if(!props.rates || props.rates.length <= 0) {
             return (
                 <div className="rate">
                     {createStarBorderIcons(5)}
