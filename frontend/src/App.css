@@ -116,8 +116,16 @@ nav a:hover, nav button:hover {
   height: auto;
   margin: auto;
 }
+.recipe-header a{
+  text-decoration: none;
+  color: black;
+}
 .recipe-header *{
   display: inline-block;
+}
+.recipe-header button{
+  border: none;
+  background: none;
 }
 .bookmark-button {
   float: right;

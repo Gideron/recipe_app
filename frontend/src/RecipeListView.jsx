@@ -1,7 +1,7 @@
 import React from 'react';
 //material icons
 import BookmarkIcon from '@material-ui/icons/Bookmark';
-//import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 //mockup data
 //import RecipeData from './mockup_data/RecipeList.json'
 import RateElement from './RateElement'
@@ -41,6 +41,16 @@ const RecipeListView = ({match}) => {
     );
 }
 
+var loggedin = true;
+var bookmarked = false;
+function toggleBookmarkQuery(recipeId) {
+    /*const { loading, error, data } = useQuery(ALL_RECIPES);
+  
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error :(</p>;*/
+    console.log("Do the query to bookmark here, recipe:"+recipeId);
+    bookmarked = !bookmarked;
+}
 const RecipeList = (props) => {
     const { loading, error, data } = useQuery(ALL_RECIPES);
   
@@ -53,20 +63,19 @@ const RecipeList = (props) => {
     
     if(!recipeListData) return <p>Recipes not found</p>
     
+    
     return (
     <ul className="recipe-list">
         {recipeListData.map(recipe => (
-        <Link key={"link"+recipe.id} to={"/recipe/" + recipe.id}>
             <li className="recipe-list-element" key={"li"+recipe.id} to={"/recipe/" + recipe.id}>
                 <div className="recipe-header">
-                    <h2>{recipe.title}</h2>
-                    <span className="bookmark-button"><BookmarkIcon /></span>
+                    <Link to={"/recipe/" + recipe.id}><h2>{recipe.title}</h2></Link>
+                    <button className="bookmark-button" onClick={toggleBookmarkQuery.bind(this, recipe.id)}>{loggedin&&bookmarked ?  <BookmarkIcon /> : <BookmarkBorderIcon />}</button>
                 </div>
                 <RateElement rates={recipe.rates}/>
                 <img className="recipe-img" src={recipe.picture? recipe.picture : "https://via.placeholder.com/300x150"} alt="food" />
                 <p>{recipe.description}</p>
             </li>
-        </Link>
         ))}
     </ul>
     );
