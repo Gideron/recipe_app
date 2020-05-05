@@ -71,7 +71,7 @@ mutation category{
 mutation createRecipe{
   createRecipe(title: "Recipe title",
     description:"description texts",
-    steps:"coocking steps here",
+    steps:"cooking steps here",
     difficulty:"Easy",
     cookingTime:"1",
   	categoryId:"CATEGORY_ID"){
