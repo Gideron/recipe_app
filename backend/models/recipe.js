@@ -12,12 +12,10 @@ const recipeSchema = new Schema(
       required: true,
     },
     cookingTime: String,
-    /*categories: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Category",
-      },
-    ],*/
+    category: {
+      type: Schema.Types.ObjectId,
+      ref: "Category",
+    },
     rates: [
       {
         username: String,
