@@ -22,6 +22,7 @@ const recipeSchema = new Schema(
       {
         username: String,
         createdAt: String,
+        rate: Number,
       },
     ],
     bookmarks: [

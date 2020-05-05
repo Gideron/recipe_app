@@ -36,6 +36,7 @@ module.exports = gql`
     id: ID!
     createdAt: String!
     username: String!
+    rate: Int!
   }
   type Bookmark {
     id: ID!
@@ -59,7 +60,7 @@ module.exports = gql`
     deleteRecipe(recipeId: ID!): String!
     createComment(recipeId: String!, body: String!): Recipe!
     deleteComment(recipeId: ID!, commentId: ID!): Recipe!
-    rateRecipe(recipeId: ID!): Recipe!
+    rateRecipe(recipeId: ID!, rate: Int!): Recipe!
     bookmarkRecipe(recipeId: ID!): Recipe!
   }
 `;

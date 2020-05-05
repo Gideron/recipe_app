@@ -84,5 +84,26 @@ module.exports = {
         return recipe;
       } else throw new UserInputError("Recipe not found");
     },
+    async rateRecipe(_, { recipeId, rate }, context) {
+      const { username } = auth(context);
+
+      const recipe = await Recipe.findById(recipeId);
+      if (recipe) {
+        if (recipe.rates.find((rate) => rate.username === username)) {
+          recipe.rates = recipe.rates.filter(
+            (rate) => rate.username !== username
+          );
+          await recipe.save();
+        } else {
+          recipe.rates.push({
+            username,
+            rate,
+            createdAt: new Date().toISOString(),
+          });
+        }
+        await recipe.save();
+        return recipe;
+      } else throw new UserInputError("Recipe not found");
+    },
   },
 };
