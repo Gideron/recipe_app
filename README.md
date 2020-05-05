@@ -94,7 +94,7 @@ mutation rate{
 }
 ```
 
-4. Create comment
+5. Create comment
 
 ```sh
 mutation createComment{
