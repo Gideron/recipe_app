@@ -123,7 +123,7 @@ nav a:hover, nav button:hover {
 .recipe-header *{
   display: inline-block;
 }
-.recipe-header button{
+.bookmark-button{
   border: none;
   background: none;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 //material icons
 import BookmarkIcon from '@material-ui/icons/Bookmark';
-//import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import RateElement from './RateElement'
 
 import { useQuery } from '@apollo/react-hooks';
@@ -27,8 +27,7 @@ const RecipeView = ({match}) => {
     const recipeId = match.params.recipeId;
     const { loading, error, data } = useQuery(GET_RECIPE, {
         variables: { recipeId },
-      })
-    console.log(GET_RECIPE);
+    })
   
     if (loading) return <p>Loading...</p>;
     if (error) {
@@ -47,11 +46,14 @@ const RecipeView = ({match}) => {
 }
 
 const RecipeContent = (props) => {
+    var loggedin = false;
+    var bookmarked = false;
+
     return (
         <div className="recipe-view">
             <div className="recipe-view-header">
                 <h1>{props.recipe.title} <span>ID: {props.recipe.id}</span></h1>
-                <BookmarkIcon />
+                <button className="bookmark-button">{loggedin&&bookmarked ?  <BookmarkIcon /> : <BookmarkBorderIcon />}</button>
             </div>
             <RateElement rates={props.recipe.rates}/>
             <img className="recipe-img" src={props.recipe.picture} alt="food" />
