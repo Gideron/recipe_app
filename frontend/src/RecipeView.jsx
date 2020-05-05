@@ -56,7 +56,9 @@ const RecipeContent = (props) => {
                 <button className="bookmark-button">{loggedin&&bookmarked ?  <BookmarkIcon /> : <BookmarkBorderIcon />}</button>
             </div>
             <RateElement rates={props.recipe.rates}/>
-            <img className="recipe-img" src={props.recipe.picture} alt="food" />
+            <div className="recipe-view-img-holder">
+                <img className="recipe-img" src={props.recipe.picture? props.recipe.picture : "https://via.placeholder.com/300x150"} alt="food" />
+            </div>
             <h3>Description:</h3>
             <p>{props.recipe.description}</p>
             <h3>Steps:</h3>
