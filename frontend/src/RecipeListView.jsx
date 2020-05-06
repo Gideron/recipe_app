@@ -21,6 +21,7 @@ const ALL_RECIPES = gql`
         difficulty
         cookingTime
         rates{id,username,rate}
+        category {id, title}
     }
   }
 `;
@@ -59,9 +60,9 @@ const RecipeList = (props) => {
     if (error) return <p>Error :(</p>;
 
     var recipeListData = data.getRecipes;
-    if(props && props.category)
-        recipeListData = data.getRecipes.find(recipe => recipe.category === props.category);
-    
+    if(props && props.category) {
+        recipeListData = data.getRecipes.filter(recipe => recipe.category.title === props.category);
+    }
     if(!recipeListData) return <p>Recipes not found</p>
     
     return (

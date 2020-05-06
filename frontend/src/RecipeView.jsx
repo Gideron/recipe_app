@@ -19,6 +19,7 @@ const GET_RECIPE = gql`
         cookingTime
         comments {id, username, body, createdAt}
         rates {id, username, rate}
+        category {id, title}
     }
   }
 `;

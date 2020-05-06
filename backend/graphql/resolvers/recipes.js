@@ -1,13 +1,14 @@
 const { AuthenticationError, UserInputError } = require("apollo-server");
 
 const Recipe = require("../../models/recipe");
+const Category = require('../../models/category');
 const auth = require("../../utils/checkAuth");
 
 module.exports = {
   Query: {
     async getRecipes() {
       try {
-        const recipes = await Recipe.find().sort({ createdAt: -1 });
+        const recipes = await Recipe.find().populate('category').sort({ createdAt: -1 });
         return recipes;
       } catch (err) {
         throw new Error(err);
@@ -15,7 +16,7 @@ module.exports = {
     },
     async getRecipe(_, { recipeId }) {
       try {
-        const recipe = await Recipe.findById(recipeId);
+        const recipe = await Recipe.findById(recipeId).populate('category');
         if (recipe) {
           return recipe;
         } else {
