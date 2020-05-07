@@ -25,6 +25,8 @@ const ProfileContent = (props) => {
             <h1>{props.user.name} <span>ID: {props.user.id}</span></h1>
             <Link to={"/recipes/user/"+props.user.id}>{props.user.name}'s Recipes</Link>
             <Link to={"/recipes/bookmarks/"+props.user.id}>{props.user.name}'s Bookmarks</Link>
+            <br/>
+            <Link to="/create/recipe">Create Category</Link>
             <Link to="/create/recipe">Create Recipe</Link>
         </div>
     );

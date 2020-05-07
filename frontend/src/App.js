@@ -12,6 +12,7 @@ import RecipeView from './RecipeView.jsx';
 import ProfileView from './ProfileView.jsx';
 import LoginView from './LoginView.jsx';
 import CreateRecipeView from './CreateRecipeView.jsx';
+import CreateCategoryView from './CreateCategoryView.jsx';
 
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
@@ -32,6 +33,7 @@ function App() {
             <Route exact path="/profile/:userId?" component={ProfileView} />
             <Route path="/login" component={LoginView} />
             <Route path="/create/recipe" component={CreateRecipeView}/>
+            <Route path="/create/category" component={CreateCategoryView}/>
           </Switch>
         </ApolloProvider>
       </Router>
