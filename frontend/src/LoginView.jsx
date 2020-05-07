@@ -1,6 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { useMutation } from '@apollo/react-hooks';
+import { Mutation } from "react-apollo";
+import { gql } from "apollo-boost"
+
+const LOGIN = gql`
+mutation Login($uname: String!, $pwrd: String!) {
+	login(username:$uname, password:$pwrd){id, email, token, username}
+}
+`;
+
 class LoginView extends React.Component {
     constructor(props) {
       super(props);
@@ -17,6 +27,17 @@ class LoginView extends React.Component {
     loginSubmitHandler = (event) => {
         event.preventDefault();
         console.log("login, usr: '" + this.state.username + "' pwr:'" +this.state.password + "'");
+
+        var uname = this.state.loginusername;
+        var pwrd = this.state.loginpassword;
+        const { loading, error, data } = useMutation(LOGIN, {
+            variables: { uname, pwrd },
+        })
+
+        if (loading) console.log("login loading");
+        if (error) console.log("login error");
+
+        console.log("data u:" + data.login.username + "t:" + data.login.token);
 
         var qglerror = "gql error";
         let err = '';

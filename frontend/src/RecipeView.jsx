@@ -29,14 +29,14 @@ const RecipeView = ({match}) => {
     const { loading, error, data } = useQuery(GET_RECIPE, {
         variables: { recipeId },
     })
-  
+
     if (loading) return <p>Loading...</p>;
     if (error) {
         return (
             <div className="content">
                 <h1 style={{color: "red"}}>Recipe not found</h1>
             </div>
-        ); 
+        );
     }
 
     return (
