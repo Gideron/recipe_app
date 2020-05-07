@@ -37,7 +37,7 @@ const RecipeListView = ({match}) => {
     }
     return (
     <div className="content">
-        <h1>Recipes/Bookmarks</h1>
+        <h1>New Recipes</h1>
         <RecipeList />
     </div>
     );
