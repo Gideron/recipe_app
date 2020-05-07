@@ -203,3 +203,9 @@ nav a:hover, nav button:hover {
   margin-bottom: 5px;
   display: block;
 }
+
+.content form * {
+  margin: auto;
+  margin-bottom: 5px;
+  display: block;
+}
