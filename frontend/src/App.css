@@ -90,6 +90,10 @@ nav a:hover, nav button:hover {
   width: 100vw;
   font-size: 12px;
 }
+.menu-bottom{
+  float: bottom;
+  position: block;
+}
 
 .content {
   max-width: 800px;

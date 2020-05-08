@@ -69,6 +69,10 @@ const NavigationBar = () => {
       ) : (
         <p>No categories</p>
       )}
+      <div id="menu-bottom">
+        <Link to="/create/category">Create Category</Link>
+        <Link to="/create/recipe">Create Recipe</Link>
+      </div>
     </div>,
   ];
 };
