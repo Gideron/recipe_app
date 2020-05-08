@@ -25,7 +25,6 @@ const CreateCategoryView = ({match}) => {
             e.preventDefault();
             addCategory({ variables: { title: input.value } });
             input.value = '';
-            
             }}>
                 <p>Category name:</p>
                 <input type='text' placeholder="Name" required ref={node => {
