@@ -90,9 +90,13 @@ nav a:hover, nav button:hover {
   width: 100vw;
   font-size: 12px;
 }
-.menu-bottom{
-  float: bottom;
-  position: block;
+.menu-bottom {
+  background-color: rgba(36, 73, 235, 0.349);
+  position: absolute;
+  bottom: 0;
+}
+.menu-bottom a {
+  background-color: rgba(0, 47, 255, 0.05);
 }
 
 .content {
