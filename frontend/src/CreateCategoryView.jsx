@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom'
 
 import { useMutation } from '@apollo/react-hooks';
 import { gql } from "apollo-boost"
@@ -10,16 +11,21 @@ mutation category($title: String!){
 `;
 const CreateCategoryView = ({match}) => {
     let input;
-    const [addTodo, { data }] = useMutation(CREATE_CATEGORY);
+    const [addCategory, { data }] = useMutation(CREATE_CATEGORY);
+
+    if(data && data.addCategory){
+        alert("Page might need a reload after redirect");
+        return <Redirect to='/' />
+    } 
 
     return (
         <div className="content">
             <h1>Create new category</h1>
             <form onSubmit={e => {
             e.preventDefault();
-            addTodo({ variables: { title: input.value } });
+            addCategory({ variables: { title: input.value } });
             input.value = '';
-            alert("Category created! Page might need a reload");
+            
             }}>
                 <p>Category name:</p>
                 <input type='text' placeholder="Name" required ref={node => {
