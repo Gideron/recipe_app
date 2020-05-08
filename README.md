@@ -32,7 +32,17 @@ npm start
 
 Frontend will be running on localhost:3000
 
-## Setting up data
+## Setting up data in frontend
+
+1. Create user or login at /login (location: top right in nav bar)
+
+2. Create category at /create/category (location: bottom menu)
+
+3. Create recipe at /create/recipe (location: bottom menu)
+
+4. Create comment at /recipe/RECIPE_ID (location: open recipe by clicking recipe name)
+
+## Setting up data manually
 
 1. Create user
 
