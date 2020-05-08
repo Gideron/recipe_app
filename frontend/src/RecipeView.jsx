@@ -4,7 +4,7 @@ import BookmarkIcon from '@material-ui/icons/Bookmark';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import RateElement from './RateElement'
 
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { gql } from "apollo-boost"
 
 const GET_RECIPE = gql`
@@ -21,6 +21,13 @@ const GET_RECIPE = gql`
         rates {id, username, rate}
         category {id, title}
     }
+  }
+`;
+const CREATE_COMMENT = gql`
+mutation createComment ($recipeId: String!, $comment: String!){
+    createComment(recipeId:$recipeId,
+      body:$comment)
+    {id, comments{id,username,body}}
   }
 `;
 
@@ -65,6 +72,7 @@ const RecipeContent = (props) => {
             <h3>Steps:</h3>
             <p>{props.recipe.steps}</p>
             <h3>Comments:</h3>
+            <CommentForm recipeId={props.recipe.id} />
             {props.recipe.comments && props.recipe.comments.length > 0 ? props.recipe.comments.map((comment) => (
                 <div key={"comment"+comment.id} className="recipe-comment">
                     <h4>{comment.username}: <span>-{comment.createdAt}</span></h4>
@@ -74,5 +82,33 @@ const RecipeContent = (props) => {
         </div>
     );
 }
+
+const CommentForm = (props) => {
+    let inputComment;
+  
+    const [createComment, { data }] = useMutation(CREATE_COMMENT);
+  
+    if(data){
+        window.location.reload(false);
+    } 
+      
+    return (
+      <form onSubmit={e => {
+        e.preventDefault();
+        createComment({ variables: { recipeId: props.recipeId, comment: inputComment.value} });
+        console.log("login form submit");
+        }}>
+          <input
+          type='text'
+          placeholder="Enter Comment"
+          required
+          ref={node => {
+            inputComment = node;
+          }}
+          />
+          <input type='submit' value="Comment"/>
+      </form>
+    );
+  }
 
 export default RecipeView;
