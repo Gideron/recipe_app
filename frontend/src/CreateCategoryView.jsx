@@ -9,12 +9,22 @@ mutation category($title: String!){
 }
 `;
 const CreateCategoryView = ({match}) => {
+    let input;
+    const [addTodo, { data }] = useMutation(CREATE_CATEGORY);
+
     return (
         <div className="content">
             <h1>Create new category</h1>
-            <form>
+            <form onSubmit={e => {
+            e.preventDefault();
+            addTodo({ variables: { title: input.value } });
+            input.value = '';
+            alert("Category created! Page might need a reload");
+            }}>
                 <p>Category name:</p>
-                <input type='text' placeholder="Name" required/>
+                <input type='text' placeholder="Name" required ref={node => {
+                    input = node;
+                }}/>
                 
                 <input type='submit' value="Create"/>
             </form>

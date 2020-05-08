@@ -16,9 +16,22 @@ import CreateCategoryView from './CreateCategoryView.jsx';
 
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
+
+//localStorage.setItem('token', "TOKEN_STRING");
+
 const client = new ApolloClient({
   uri: 'http://localhost:3030/',
-});
+  request: (operation) => {
+    const token = localStorage.getItem('token')
+
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    })
+  }
+})
+
 
 function App() {
   return (
